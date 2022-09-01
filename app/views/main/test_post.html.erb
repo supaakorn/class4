@@ -1,0 +1,21 @@
+<h1>Main#test_post</h1>
+
+<%= 'total score:' %> <%= @s2.to_i+@s4.to_i+@s6.to_i %><br>
+
+<%= 'best subject:' %> 
+
+
+<%= 
+if @s2.to_i >= @s4.to_i && @s2.to_i >= @s6.to_i
+    @s1
+elsif @s4.to_i >= @s2.to_i && @s4.to_i >= @s6.to_i
+    @s3
+else
+    @s5
+
+end
+
+%>
+<%= @s2 %>
+<%= @s4 %>
+<%= @s6 %>
