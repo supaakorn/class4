@@ -1,19 +1,15 @@
 <h1>Main#test</h1>
-<%= form_with url: "/main/test_post", method: :'post', data:{turbo: false} do |form| %>
+<%= form_with url: "/main/test_post", method: "post", data:{turbo: false} do|form| %>
+<%= hidden_field_tag(:time,@time) %>
+ 
+<% @time.to_i.times{ |i| %>
+    <label for="subject[name]"> subject <%= i+1 %> </label>
+    <input type="text" name="subject[name][]" value="">
+    <label for="subject[score]"> score <%= i+1 %> </label>
+    <input type="number" name="subject[score][]" value="">
+    <br>
+<% }%>
+<%= form.submit %>
     
-    <%= form.label :query, "Subject:" %>
-    <%= form.text_field :sub1 %>
-    <%= form.label :query, "Score:" %>
-    <%= form.number_field :sub1_n %><br>
-    <%= form.label :query, "Subject:" %>
-    <%= form.text_field :sub2 %>
-    <%= form.label :query, "Score:" %>
-    <%= form.number_field :sub2_n %><br>
-    <%= form.label :query, "Subject:" %>
-    <%= form.text_field :sub3 %>
-    <%= form.label :query, "Score:" %>
-    <%= form.number_field :sub3_n %><br>
-    <%= form.submit "Submit" %>
-    
-  <% end %>
-  
+<% end %>
+
